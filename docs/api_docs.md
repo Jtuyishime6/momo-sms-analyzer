@@ -1,6 +1,4 @@
-Here's everything to paste into `docs/api_docs.md`:
 
-```markdown
 # MoMo SMS Transaction API Documentation
 
 ## Base URL
@@ -23,8 +21,10 @@ Returns all transactions in the system.
 
 **Request:**
 ```
-GET http://localhost:8000/transactions
+
+GET <http://localhost:8000/transactions>
 Authorization: Basic amVhbjpqZWFuZDEyMw==
+
 ```
 
 **Success Response — 200 OK:**
@@ -49,6 +49,7 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Error Response — 401 Unauthorized:**
+
 ```json
 {
   "status": "error",
@@ -59,15 +60,18 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ---
 
 ### 2. GET /transactions/{id}
+
 Returns a single transaction by ID.
 
 **Request:**
+
 ```
 GET http://localhost:8000/transactions/1
 Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Success Response — 200 OK:**
+
 ```json
 {
   "status": "success",
@@ -86,6 +90,7 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Error Response — 404 Not Found:**
+
 ```json
 {
   "status": "error",
@@ -94,6 +99,7 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Error Response — 401 Unauthorized:**
+
 ```json
 {
   "status": "error",
@@ -104,9 +110,11 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ---
 
 ### 3. POST /transactions
+
 Creates a new transaction record.
 
 **Request:**
+
 ```
 POST http://localhost:8000/transactions
 Authorization: Basic amVhbjpqZWFuZDEyMw==
@@ -114,6 +122,7 @@ Content-Type: application/json
 ```
 
 **Request Body:**
+
 ```json
 {
   "type": "incoming",
@@ -126,6 +135,7 @@ Content-Type: application/json
 ```
 
 **Success Response — 201 Created:**
+
 ```json
 {
   "status": "success",
@@ -143,6 +153,7 @@ Content-Type: application/json
 ```
 
 **Error Response — 400 Bad Request:**
+
 ```json
 {
   "status": "error",
@@ -151,6 +162,7 @@ Content-Type: application/json
 ```
 
 **Error Response — 401 Unauthorized:**
+
 ```json
 {
   "status": "error",
@@ -161,9 +173,11 @@ Content-Type: application/json
 ---
 
 ### 4. PUT /transactions/{id}
+
 Updates an existing transaction by ID.
 
 **Request:**
+
 ```
 PUT http://localhost:8000/transactions/1
 Authorization: Basic amVhbjpqZWFuZDEyMw==
@@ -171,6 +185,7 @@ Content-Type: application/json
 ```
 
 **Request Body:**
+
 ```json
 {
   "amount": 2500
@@ -178,6 +193,7 @@ Content-Type: application/json
 ```
 
 **Success Response — 200 OK:**
+
 ```json
 {
   "status": "success",
@@ -195,6 +211,7 @@ Content-Type: application/json
 ```
 
 **Error Response — 404 Not Found:**
+
 ```json
 {
   "status": "error",
@@ -203,6 +220,7 @@ Content-Type: application/json
 ```
 
 **Error Response — 401 Unauthorized:**
+
 ```json
 {
   "status": "error",
@@ -213,15 +231,18 @@ Content-Type: application/json
 ---
 
 ### 5. DELETE /transactions/{id}
+
 Deletes a transaction record by ID.
 
 **Request:**
+
 ```
 DELETE http://localhost:8000/transactions/1
 Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Success Response — 200 OK:**
+
 ```json
 {
   "status": "success",
@@ -230,6 +251,7 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Error Response — 404 Not Found:**
+
 ```json
 {
   "status": "error",
@@ -238,6 +260,7 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Error Response — 401 Unauthorized:**
+
 ```json
 {
   "status": "error",
@@ -273,6 +296,7 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 | counterpart | string | Name of sender or recipient |
 | timestamp | string | Date and time of transaction (YYYY-MM-DD HH:MM:SS) |
 | readable_date | string | Human-readable date extracted from SMS |
+
 ```
 
 
