@@ -1,4 +1,4 @@
-from http.server import HTTPServer, BaseHTTPRequestHandler
+﻿from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import base64
 from urllib.parse import urlparse
@@ -13,12 +13,19 @@ AUTH_PASS = "jeand123"
 def load_records():
     global records, next_record_id
     try:
-        with open('data/processed/transactions.json', 'r') as f:
-            records = json.load(f)
+        with open('data/processed/transactions.json', 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            if not content:
+                records = []
+            else:
+                records = json.loads(content)
             next_record_id = max([r['id'] for r in records]) + 1 if records else 1
         print(f"Loaded {len(records)} transaction records")
     except FileNotFoundError:
-        print("transactions.json not found — starting fresh.")
+        print("transactions.json not found - starting fresh.")
+        records = []
+    except json.JSONDecodeError:
+        print("transactions.json was unreadable - starting fresh.")
         records = []
 
 def persist_records():
@@ -172,7 +179,7 @@ class MoMoHandler(BaseHTTPRequestHandler):
 def run(port=8000):
     load_records()
     server = HTTPServer(('', port), MoMoHandler)
-    print(f"\n MoMo SMS Analyzer — REST API")
+    print(f"\n MoMo SMS Analyzer â€” REST API")
     print(f" Listening on http://localhost:{port}")
     print(f" Auth: Basic Auth  |  user: {AUTH_USER}  |  pass: {AUTH_PASS}")
     print(f"\n Endpoints:")
