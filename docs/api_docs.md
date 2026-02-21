@@ -2,9 +2,11 @@
 # MoMo SMS Transaction API Documentation
 
 ## Base URL
-http://localhost:8000
+
+<http://localhost:8000>
 
 ## Authentication
+
 All endpoints require Basic Authentication.
 
 - Username: `jean`
@@ -17,9 +19,11 @@ Credentials are sent as a Base64-encoded Authorization header on every request.
 ## Endpoints
 
 ### 1. GET /transactions
+
 Returns all transactions in the system.
 
 **Request:**
+
 ```
 
 GET <http://localhost:8000/transactions>
@@ -28,6 +32,7 @@ Authorization: Basic amVhbjpqZWFuZDEyMw==
 ```
 
 **Success Response — 200 OK:**
+
 ```json
 {
   "status": "success",
