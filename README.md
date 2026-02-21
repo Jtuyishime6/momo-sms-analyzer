@@ -6,7 +6,7 @@ Enterprise-grade fullstack application that ingests MoMo SMS data from XML, runs
 
 ## Team
 
-**Jean de Dieu Tuyishime** — j.tuyishime6@alustudent.com
+**Jean de Dieu Tuyishime** — <j.tuyishime6@alustudent.com>
 
 ---
 
@@ -76,6 +76,7 @@ Key constraints: `CHECK (tx_amount > 0)`, `CHECK (fee_charged >= 0)`, unique com
 ## Quick Start
 
 ### Prerequisites
+
 - Python 3.x
 - MySQL 8+
 
@@ -191,6 +192,7 @@ python -m pytest tests/
 ## DSA - Data Structures & Algorithms
 
 ### Search Comparison
+
 The `dsa/dsa_search.py` script compares two search methods on the parsed transactions:
 
 | Method | Time Complexity | Description |
@@ -199,22 +201,25 @@ The `dsa/dsa_search.py` script compares two search methods on the parsed transac
 | Dictionary Lookup | O(1) | Direct key access using a hash table |
 
 ### Run the DSA Test
+
 ```bash
 python dsa/dsa_search.py
 ```
 
 ### How It Works
+
 - **Linear Search** — iterates through the full list of transactions comparing each ID
 - **Dictionary Lookup** — builds a `{id: transaction}` dict once, then fetches by key instantly
 
 ### Why Dictionary Lookup is Faster
+
 Python dictionaries use hash tables internally. Given a key, Python computes its hash and jumps directly to the value in memory — no scanning required. With 1,693 SMS records, dictionary lookup is significantly faster than linear search for repeated ID queries.
 
 ### Alternative Data Structures
+
 - **B-Tree** — used by MySQL indexes, O(log n), optimised for large datasets on disk
 - **Binary Search Tree** — O(log n), good when data needs to stay sorted
 - **Sorted list + Binary Search** — O(log n) with lower memory overhead than a dict
-
 
 ---
 
